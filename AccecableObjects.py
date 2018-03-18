@@ -50,7 +50,8 @@ class Location(object):
 
 
 class _Game(object):
-    pass
+    def __init__(self,acceleration):
+        self.a = acceleration
     
 
 class _GameObject(_Actions):
@@ -82,9 +83,9 @@ class Pirate(_GameObject):
             self.addAction(self,'move',[gameobj.get_location()])
             
 class Flag(_GameObject):
-    def __init__(self,location,id):
+    def __init__(self,location,id,speed):
         _GameObject.__init__(self,'Flag',location,id,-1)
-    
+        self.speed = speed
 
 class HomeBase(_GameObject):
     def __init__(self,location,unload_range,team,id):
